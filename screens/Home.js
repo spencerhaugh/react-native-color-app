@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useCallback } from 'react';
-import { FlatList, StyleSheet, RefreshControl, TouchableOpacity, Text } from 'react-native';
+import { FlatList, StyleSheet, TouchableOpacity, Text } from 'react-native';
 import PalettePreview from '../component/PalettePreview';
 
 const Home = ({ navigation, route }) => {
@@ -21,7 +21,9 @@ const Home = ({ navigation, route }) => {
     const handleRefresh = useCallback(async () => {
         setIsRefreshing(true);
         await getColorPalettes;
-        setIsRefreshing(false);
+        setTimeout(() => {
+            setIsRefreshing(false);
+        }, 1000)
     }, [])
 
     useEffect(() => {
@@ -49,7 +51,6 @@ const Home = ({ navigation, route }) => {
             )}
             refreshing={isRefreshing}
             onRefresh={handleRefresh}
-            // refreshControl={<RefreshControl refreshing={} onRefresh={() => { }} />}
             ListHeaderComponent={
                 <TouchableOpacity onPress={() => {
                     navigation.navigate('AddNewPaletteModal')

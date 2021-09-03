@@ -1,6 +1,5 @@
 import React, { useState, useCallback } from 'react';
 import { View, Text, TextInput, StyleSheet, TouchableOpacity, Alert, Switch, FlatList } from 'react-native';
-import AddNewPalette from '../component/AddNewPalette';
 import COLORS from '../assets/FormColors';
 import { v4 as uuid } from 'uuid'
 
@@ -112,4 +111,4 @@ const style = StyleSheet.create({
         shadowRadius: 2,
         elevation: 2, // for Android  (no box-shadow)
     }
-})
+});
